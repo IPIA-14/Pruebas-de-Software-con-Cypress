@@ -18,6 +18,7 @@ describe('Nivel Medio', () => {
         cy.contains('a', 'type').click();
         cy.get('#fullName1').type('Juan');
         cy.get('#fullName1').should('have.value', 'Juan');
+        
     });
 
 });
