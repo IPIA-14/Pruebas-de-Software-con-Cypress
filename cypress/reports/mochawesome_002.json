@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-03-09T13:37:14.078Z",
+    "end": "2026-03-09T13:37:20.699Z",
+    "duration": 6621,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c18780e4-34a5-4e48-b0ba-c98a20e4a3a9",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Ejercicio 2 – Nivel Medio.cy.js",
+      "file": "cypress\\e2e\\Ejercicio 2 – Nivel Medio.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f6fe00d5-aad8-4508-bd04-a53bb9968ad8",
+          "title": "Nivel Medio",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Ingresar a la opción “Type”.",
+              "fullTitle": "Nivel Medio Ingresar a la opción “Type”.",
+              "timedOut": null,
+              "duration": 1194,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://example.cypress.io');\ncy.contains('a', 'type').click();",
+              "err": {},
+              "uuid": "94ce78ab-4db3-4743-95f1-de728363a5d6",
+              "parentUUID": "f6fe00d5-aad8-4508-bd04-a53bb9968ad8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Escribir su nombre en el input.",
+              "fullTitle": "Nivel Medio Escribir su nombre en el input.",
+              "timedOut": null,
+              "duration": 875,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://example.cypress.io');\ncy.contains('a', 'type').click();\ncy.get('#fullName1').type('Juan');",
+              "err": {},
+              "uuid": "87830de6-9d6e-43a8-ba84-a85397975791",
+              "parentUUID": "f6fe00d5-aad8-4508-bd04-a53bb9968ad8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verificar que el texto ingresado sea correcto.",
+              "fullTitle": "Nivel Medio Verificar que el texto ingresado sea correcto.",
+              "timedOut": null,
+              "duration": 948,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://example.cypress.io');\ncy.contains('a', 'type').click();\ncy.get('#fullName1').type('Juan');\ncy.get('#fullName1').should('have.value', 'Juan');",
+              "err": {},
+              "uuid": "24afa89c-a427-4902-b1d4-9865f13576ba",
+              "parentUUID": "f6fe00d5-aad8-4508-bd04-a53bb9968ad8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "94ce78ab-4db3-4743-95f1-de728363a5d6",
+            "87830de6-9d6e-43a8-ba84-a85397975791",
+            "24afa89c-a427-4902-b1d4-9865f13576ba"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3017,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

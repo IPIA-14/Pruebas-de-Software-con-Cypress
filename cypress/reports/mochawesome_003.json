@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-03-09T13:37:25.646Z",
+    "end": "2026-03-09T13:37:31.859Z",
+    "duration": 6213,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "3ec61e58-3e93-4352-8185-d082d6b33592",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Ejercicio 3 – Nivel medio.cy.js",
+      "file": "cypress\\e2e\\Ejercicio 3 – Nivel medio.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "84caa475-e851-4585-9636-ffb7b6bc9f9f",
+          "title": "Ejercicio 3 - Nivel medio",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Ir a “Checkboxes”.",
+              "fullTitle": "Ejercicio 3 - Nivel medio Ir a “Checkboxes”.",
+              "timedOut": null,
+              "duration": 1296,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://example.cypress.io');\ncy.contains('a', 'type').click();\ncy.get('.action-checkboxes').scrollIntoView().should('be.visible');",
+              "err": {},
+              "uuid": "5ec39b7d-a434-4eed-b14f-8439498a94c3",
+              "parentUUID": "84caa475-e851-4585-9636-ffb7b6bc9f9f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Seleccionar todos los checkbox.",
+              "fullTitle": "Ejercicio 3 - Nivel medio Seleccionar todos los checkbox.",
+              "timedOut": null,
+              "duration": 1270,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://example.cypress.io');\ncy.get('.home-list').contains('Actions').click();\ncy.get('.well [type=\"checkbox\"]').check({\n  force: true\n}).should('be.checked');",
+              "err": {},
+              "uuid": "112d5cb8-f3f6-4531-9d0f-a3f5ffb81dfb",
+              "parentUUID": "84caa475-e851-4585-9636-ffb7b6bc9f9f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "5ec39b7d-a434-4eed-b14f-8439498a94c3",
+            "112d5cb8-f3f6-4531-9d0f-a3f5ffb81dfb"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2566,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

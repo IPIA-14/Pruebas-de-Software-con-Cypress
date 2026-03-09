@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-03-09T13:37:36.380Z",
+    "end": "2026-03-09T13:37:47.595Z",
+    "duration": 11215,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "9a241bb5-e5d6-4146-948b-de62506169c5",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Ejercicio 4 – Nivel avanzado.cy.js",
+      "file": "cypress\\e2e\\Ejercicio 4 – Nivel avanzado.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "440d6f9a-5a63-4694-b3c0-413b85441840",
+          "title": "Ejercicio 4 - Nivel avanzado",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Ir al modulo Form",
+              "fullTitle": "Ejercicio 4 - Nivel avanzado Ir al modulo Form",
+              "timedOut": null,
+              "duration": 1187,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://example.cypress.io');\ncy.contains('a', 'type').click();\ncy.get('.action-form').scrollIntoView().should('be.visible');",
+              "err": {},
+              "uuid": "eb2b424d-4558-43d5-9517-f1f568c50cbb",
+              "parentUUID": "440d6f9a-5a63-4694-b3c0-413b85441840",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Llenar los campos (nombre, correo, comentario).",
+              "fullTitle": "Ejercicio 4 - Nivel avanzado Llenar los campos (nombre, correo, comentario).",
+              "timedOut": null,
+              "duration": 1990,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://example.cypress.io');\ncy.contains('a', 'type').click();\ncy.get('.action-form').scrollIntoView().should('be.visible');\ncy.get('#fullName1').type('Juan');\ncy.get('#email1').type('juan@example.com');\ncy.get('#description').type('Esto es un ejemplo de comentario');",
+              "err": {},
+              "uuid": "41e06d2e-ec5c-47e5-937b-1bc7ba9b687f",
+              "parentUUID": "440d6f9a-5a63-4694-b3c0-413b85441840",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Enviar el formulario.",
+              "fullTitle": "Ejercicio 4 - Nivel avanzado Enviar el formulario.",
+              "timedOut": null,
+              "duration": 2103,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://example.cypress.io');\ncy.contains('a', 'type').click();\ncy.get('.action-form').scrollIntoView().should('be.visible');\ncy.get('#fullName1').type('Juan');\ncy.get('#email1').type('juan@example.com');\ncy.get('#description').type('Esto es un ejemplo de comentario');\ncy.get('.action-form').click();",
+              "err": {},
+              "uuid": "54a6b943-badc-40e2-9a3d-880450ea98e4",
+              "parentUUID": "440d6f9a-5a63-4694-b3c0-413b85441840",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Validar un mensaje de éxito.",
+              "fullTitle": "Ejercicio 4 - Nivel avanzado Validar un mensaje de éxito.",
+              "timedOut": null,
+              "duration": 2282,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://example.cypress.io');\ncy.contains('a', 'type').click();\ncy.get('.action-form').scrollIntoView().should('be.visible');\ncy.get('#fullName1').type('Juan');\ncy.get('#email1').type('juan@example.com');\ncy.get('#description').type('Esto es un ejemplo de comentario');\ncy.get('.action-form').click();\ncy.contains('Your form has been submitted!').should('be.visible');",
+              "err": {},
+              "uuid": "2b213b6e-3ad3-46df-b9ec-c89a9a00b153",
+              "parentUUID": "440d6f9a-5a63-4694-b3c0-413b85441840",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "eb2b424d-4558-43d5-9517-f1f568c50cbb",
+            "41e06d2e-ec5c-47e5-937b-1bc7ba9b687f",
+            "54a6b943-badc-40e2-9a3d-880450ea98e4",
+            "2b213b6e-3ad3-46df-b9ec-c89a9a00b153"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 7562,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

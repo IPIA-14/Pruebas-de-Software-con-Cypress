@@ -1,0 +1,652 @@
+{
+  "stats": {
+    "suites": 7,
+    "tests": 17,
+    "passes": 15,
+    "pending": 0,
+    "failures": 2,
+    "testsRegistered": 17,
+    "passPercent": 88.23529411764706,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "start": "2026-03-09T13:36:28.322Z",
+    "end": "2026-03-09T13:38:06.518Z",
+    "duration": 98196
+  },
+  "results": [
+    {
+      "uuid": "0344320a-2dcb-4f45-8bb6-071cc738f8d0",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Actividad final del proyecto.cy.js",
+      "file": "cypress\\e2e\\Actividad final del proyecto.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "837fe6a6-1cfa-4498-9b34-d2d1362b2119",
+          "title": "Actividad final del proyecto",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Abrir la página de inicio",
+              "fullTitle": "Actividad final del proyecto Abrir la página de inicio",
+              "timedOut": null,
+              "duration": 1442,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://frontend-gxnova-production.up.railway.app/');",
+              "err": {},
+              "uuid": "d5a78dfd-3cd7-492e-bc98-b73c9e85eb6e",
+              "parentUUID": "837fe6a6-1cfa-4498-9b34-d2d1362b2119",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Iniciar Sesión y Verificar Sesión",
+              "fullTitle": "Actividad final del proyecto Iniciar Sesión y Verificar Sesión",
+              "timedOut": null,
+              "duration": 6774,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://frontend-gxnova-production.up.railway.app/');\ncy.contains('Iniciar Sesión').click();\ncy.get('#login-correo').clear().type('ana@worker.com');\ncy.get('#login-password').clear().type('password123');\ncy.get('form').submit();\n// Verificar que el usuario se encuentre en sesión (aparece el nombre del usuario o el botón de perfil)\ncy.get('nav').should('contain', 'Ana');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected '<nav.hidden.lg:flex.items-center.gap-1>' to contain 'Ana'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected '<nav.hidden.lg:flex.items-center.gap-1>' to contain 'Ana'\n    at Context.eval (webpack://actividad-pruebas-cypress/./cypress/e2e/Actividad final del proyecto.cy.js:19:22)",
+                "diff": null
+              },
+              "uuid": "86799920-b18c-4588-b1bf-4690982e3b5d",
+              "parentUUID": "837fe6a6-1cfa-4498-9b34-d2d1362b2119",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Realizar un registro mediante un formulario",
+              "fullTitle": "Actividad final del proyecto Realizar un registro mediante un formulario",
+              "timedOut": null,
+              "duration": 3767,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://frontend-gxnova-production.up.railway.app/auth');\ncy.contains('Registrarse').click();\ncy.get('input#nombre').type('Juan');\ncy.get('input#apellido').type('Perez');\ncy.get('input#telefono').type('3001234567');\ncy.get('select#rol').select('Trabajador');\ncy.get('input#correo').type(`juan.perez.${Date.now()}@example.com`);\ncy.get('input#password').type('Password123!');\ncy.get('input#confirmPassword').type('Password123!');\n// El formulario requiere subir archivos, pero en pruebas automatizadas a veces se omiten o se cargan dummies.\n// Si el botón está habilitado sin archivos, se puede enviar.\ncy.get('button[type=\"submit\"]').click();\n// Verificar éxito (redirige al login o muestra mensaje)\ncy.url().should('include', '/auth');\ncy.contains('Iniciar Sesión').should('be.visible');",
+              "err": {},
+              "uuid": "157fc93c-b95a-4b3a-8c3b-e855b6907ad7",
+              "parentUUID": "837fe6a6-1cfa-4498-9b34-d2d1362b2119",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Consultar un elemento registrado en su proyecto",
+              "fullTitle": "Actividad final del proyecto Consultar un elemento registrado en su proyecto",
+              "timedOut": null,
+              "duration": 2468,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://frontend-gxnova-production.up.railway.app/');\n// Buscar un servicio específico (ej: Arreglar lámpara)\ncy.get('input#busqueda-principal').type('lámpara{enter}');\n// Click en el primer resultado que coincida\ncy.contains('Arreglar lámpara').click();\n// Verificar que estamos en la página de detalles\ncy.url().should('include', '/detalles/');\ncy.get('h1').should('contain', 'Arreglar lámpara');",
+              "err": {},
+              "uuid": "34a8b5d5-aa8e-4d5a-a3bb-8ebb2d91f455",
+              "parentUUID": "837fe6a6-1cfa-4498-9b34-d2d1362b2119",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Cerrar la sesión",
+              "fullTitle": "Actividad final del proyecto Cerrar la sesión",
+              "timedOut": null,
+              "duration": 11903,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Primero iniciamos sesión para poder cerrarla\ncy.visit('https://frontend-gxnova-production.up.railway.app/auth');\ncy.get('#login-correo').type('ana@worker.com');\ncy.get('#login-password').type('password123');\ncy.get('form').submit();\n// Verificar que estamos logueados\ncy.get('nav', {\n  timeout: 10000\n}).should('contain', 'Ana');\n// Hacer clic en el nombre del usuario o el botón de menú para ver \"Cerrar Sesión\"\ncy.contains('Ana').click();\ncy.contains('Cerrar Sesión').click();\n// Verificar que volvimos al estado de \"no sesion\"\ncy.contains('Iniciar Sesión').should('be.visible');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: expected '<nav.hidden.lg:flex.items-center.gap-1>' to contain 'Ana'",
+                "estack": "AssertionError: Timed out retrying after 10000ms: expected '<nav.hidden.lg:flex.items-center.gap-1>' to contain 'Ana'\n    at Context.eval (webpack://actividad-pruebas-cypress/./cypress/e2e/Actividad final del proyecto.cy.js:68:42)",
+                "diff": null
+              },
+              "uuid": "45dd1cd5-2a86-4f6b-aaf4-c93e57c8ec84",
+              "parentUUID": "837fe6a6-1cfa-4498-9b34-d2d1362b2119",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d5a78dfd-3cd7-492e-bc98-b73c9e85eb6e",
+            "157fc93c-b95a-4b3a-8c3b-e855b6907ad7",
+            "34a8b5d5-aa8e-4d5a-a3bb-8ebb2d91f455"
+          ],
+          "failures": [
+            "86799920-b18c-4588-b1bf-4690982e3b5d",
+            "45dd1cd5-2a86-4f6b-aaf4-c93e57c8ec84"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 26354,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "5455abe7-80d7-4c28-8ea4-e208f69053fa",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Ejercicio 1 – Nivel básico.cy.js",
+      "file": "cypress\\e2e\\Ejercicio 1 – Nivel básico.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e4609104-5876-446d-9bd5-cc5154465e70",
+          "title": "Ejercicio 1 - Nivel Básico",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verificar página principal",
+              "fullTitle": "Ejercicio 1 - Nivel Básico Verificar página principal",
+              "timedOut": null,
+              "duration": 927,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://example.cypress.io/');\n// Verificar título principal\ncy.contains('Kitchen Sink').should('be.visible');\n// Verificar que el link Type exista\ncy.contains('type').should('be.visible');",
+              "err": {},
+              "uuid": "a92094b0-4b08-4ff6-b20d-b5810d9646ce",
+              "parentUUID": "e4609104-5876-446d-9bd5-cc5154465e70",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a92094b0-4b08-4ff6-b20d-b5810d9646ce"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 927,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "c18780e4-34a5-4e48-b0ba-c98a20e4a3a9",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Ejercicio 2 – Nivel Medio.cy.js",
+      "file": "cypress\\e2e\\Ejercicio 2 – Nivel Medio.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f6fe00d5-aad8-4508-bd04-a53bb9968ad8",
+          "title": "Nivel Medio",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Ingresar a la opción “Type”.",
+              "fullTitle": "Nivel Medio Ingresar a la opción “Type”.",
+              "timedOut": null,
+              "duration": 1194,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://example.cypress.io');\ncy.contains('a', 'type').click();",
+              "err": {},
+              "uuid": "94ce78ab-4db3-4743-95f1-de728363a5d6",
+              "parentUUID": "f6fe00d5-aad8-4508-bd04-a53bb9968ad8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Escribir su nombre en el input.",
+              "fullTitle": "Nivel Medio Escribir su nombre en el input.",
+              "timedOut": null,
+              "duration": 875,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://example.cypress.io');\ncy.contains('a', 'type').click();\ncy.get('#fullName1').type('Juan');",
+              "err": {},
+              "uuid": "87830de6-9d6e-43a8-ba84-a85397975791",
+              "parentUUID": "f6fe00d5-aad8-4508-bd04-a53bb9968ad8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verificar que el texto ingresado sea correcto.",
+              "fullTitle": "Nivel Medio Verificar que el texto ingresado sea correcto.",
+              "timedOut": null,
+              "duration": 948,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://example.cypress.io');\ncy.contains('a', 'type').click();\ncy.get('#fullName1').type('Juan');\ncy.get('#fullName1').should('have.value', 'Juan');",
+              "err": {},
+              "uuid": "24afa89c-a427-4902-b1d4-9865f13576ba",
+              "parentUUID": "f6fe00d5-aad8-4508-bd04-a53bb9968ad8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "94ce78ab-4db3-4743-95f1-de728363a5d6",
+            "87830de6-9d6e-43a8-ba84-a85397975791",
+            "24afa89c-a427-4902-b1d4-9865f13576ba"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3017,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "3ec61e58-3e93-4352-8185-d082d6b33592",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Ejercicio 3 – Nivel medio.cy.js",
+      "file": "cypress\\e2e\\Ejercicio 3 – Nivel medio.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "84caa475-e851-4585-9636-ffb7b6bc9f9f",
+          "title": "Ejercicio 3 - Nivel medio",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Ir a “Checkboxes”.",
+              "fullTitle": "Ejercicio 3 - Nivel medio Ir a “Checkboxes”.",
+              "timedOut": null,
+              "duration": 1296,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://example.cypress.io');\ncy.contains('a', 'type').click();\ncy.get('.action-checkboxes').scrollIntoView().should('be.visible');",
+              "err": {},
+              "uuid": "5ec39b7d-a434-4eed-b14f-8439498a94c3",
+              "parentUUID": "84caa475-e851-4585-9636-ffb7b6bc9f9f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Seleccionar todos los checkbox.",
+              "fullTitle": "Ejercicio 3 - Nivel medio Seleccionar todos los checkbox.",
+              "timedOut": null,
+              "duration": 1270,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://example.cypress.io');\ncy.get('.home-list').contains('Actions').click();\ncy.get('.well [type=\"checkbox\"]').check({\n  force: true\n}).should('be.checked');",
+              "err": {},
+              "uuid": "112d5cb8-f3f6-4531-9d0f-a3f5ffb81dfb",
+              "parentUUID": "84caa475-e851-4585-9636-ffb7b6bc9f9f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "5ec39b7d-a434-4eed-b14f-8439498a94c3",
+            "112d5cb8-f3f6-4531-9d0f-a3f5ffb81dfb"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2566,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "9a241bb5-e5d6-4146-948b-de62506169c5",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Ejercicio 4 – Nivel avanzado.cy.js",
+      "file": "cypress\\e2e\\Ejercicio 4 – Nivel avanzado.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "440d6f9a-5a63-4694-b3c0-413b85441840",
+          "title": "Ejercicio 4 - Nivel avanzado",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Ir al modulo Form",
+              "fullTitle": "Ejercicio 4 - Nivel avanzado Ir al modulo Form",
+              "timedOut": null,
+              "duration": 1187,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://example.cypress.io');\ncy.contains('a', 'type').click();\ncy.get('.action-form').scrollIntoView().should('be.visible');",
+              "err": {},
+              "uuid": "eb2b424d-4558-43d5-9517-f1f568c50cbb",
+              "parentUUID": "440d6f9a-5a63-4694-b3c0-413b85441840",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Llenar los campos (nombre, correo, comentario).",
+              "fullTitle": "Ejercicio 4 - Nivel avanzado Llenar los campos (nombre, correo, comentario).",
+              "timedOut": null,
+              "duration": 1990,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://example.cypress.io');\ncy.contains('a', 'type').click();\ncy.get('.action-form').scrollIntoView().should('be.visible');\ncy.get('#fullName1').type('Juan');\ncy.get('#email1').type('juan@example.com');\ncy.get('#description').type('Esto es un ejemplo de comentario');",
+              "err": {},
+              "uuid": "41e06d2e-ec5c-47e5-937b-1bc7ba9b687f",
+              "parentUUID": "440d6f9a-5a63-4694-b3c0-413b85441840",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Enviar el formulario.",
+              "fullTitle": "Ejercicio 4 - Nivel avanzado Enviar el formulario.",
+              "timedOut": null,
+              "duration": 2103,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://example.cypress.io');\ncy.contains('a', 'type').click();\ncy.get('.action-form').scrollIntoView().should('be.visible');\ncy.get('#fullName1').type('Juan');\ncy.get('#email1').type('juan@example.com');\ncy.get('#description').type('Esto es un ejemplo de comentario');\ncy.get('.action-form').click();",
+              "err": {},
+              "uuid": "54a6b943-badc-40e2-9a3d-880450ea98e4",
+              "parentUUID": "440d6f9a-5a63-4694-b3c0-413b85441840",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Validar un mensaje de éxito.",
+              "fullTitle": "Ejercicio 4 - Nivel avanzado Validar un mensaje de éxito.",
+              "timedOut": null,
+              "duration": 2282,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://example.cypress.io');\ncy.contains('a', 'type').click();\ncy.get('.action-form').scrollIntoView().should('be.visible');\ncy.get('#fullName1').type('Juan');\ncy.get('#email1').type('juan@example.com');\ncy.get('#description').type('Esto es un ejemplo de comentario');\ncy.get('.action-form').click();\ncy.contains('Your form has been submitted!').should('be.visible');",
+              "err": {},
+              "uuid": "2b213b6e-3ad3-46df-b9ec-c89a9a00b153",
+              "parentUUID": "440d6f9a-5a63-4694-b3c0-413b85441840",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "eb2b424d-4558-43d5-9517-f1f568c50cbb",
+            "41e06d2e-ec5c-47e5-937b-1bc7ba9b687f",
+            "54a6b943-badc-40e2-9a3d-880450ea98e4",
+            "2b213b6e-3ad3-46df-b9ec-c89a9a00b153"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 7562,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "1867ef25-ed82-4376-931b-898c38d9074e",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Ejercicio 5 – Nivel avanzado.cy.js",
+      "file": "cypress\\e2e\\Ejercicio 5 – Nivel avanzado.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "822741d3-7ef4-4db5-be5e-b44fcbd392a4",
+          "title": "Ejercicio 5 - Nivel avanzado",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "inicio sesion",
+              "fullTitle": "Ejercicio 5 - Nivel avanzado inicio sesion",
+              "timedOut": null,
+              "duration": 2580,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://example.cypress.io/commands/actions');\ncy.get('#email1').type('admin@test.com');\ncy.get('#password1').type('password123');\ncy.get('.action-form').submit();\ncy.contains('Your form has been submitted!').should('be.visible');\ncy.contains('Querying').click({\n  force: true\n});\ncy.url().should('include', '/commands/querying');\ncy.get('.navbar-brand').click();\ncy.url().should('eq', 'https://example.cypress.io/');\ncy.contains('Kitchen Sink').should('be.visible');",
+              "err": {},
+              "uuid": "05c1388b-33cd-4e79-a562-c8484984b0b1",
+              "parentUUID": "822741d3-7ef4-4db5-be5e-b44fcbd392a4",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "05c1388b-33cd-4e79-a562-c8484984b0b1"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2580,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "ccb9c711-429b-470c-bbbd-6ca5bc646de9",
+      "title": "",
+      "fullFile": "cypress\\e2e\\spec.cy.js",
+      "file": "cypress\\e2e\\spec.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "67472834-a843-4614-9892-47412798e032",
+          "title": "template spec",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "passes",
+              "fullTitle": "template spec passes",
+              "timedOut": null,
+              "duration": 730,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://example.cypress.io');",
+              "err": {},
+              "uuid": "6c4d1d82-d2cb-4d9c-8534-86cb3c31bab2",
+              "parentUUID": "67472834-a843-4614-9892-47412798e032",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6c4d1d82-d2cb-4d9c-8534-86cb3c31bab2"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 730,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 3,
+    "pending": 0,
+    "failures": 2,
+    "start": "2026-03-09T13:36:28.322Z",
+    "end": "2026-03-09T13:36:59.538Z",
+    "duration": 31216,
+    "testsRegistered": 5,
+    "passPercent": 60,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0344320a-2dcb-4f45-8bb6-071cc738f8d0",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Actividad final del proyecto.cy.js",
+      "file": "cypress\\e2e\\Actividad final del proyecto.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "837fe6a6-1cfa-4498-9b34-d2d1362b2119",
+          "title": "Actividad final del proyecto",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Abrir la página de inicio",
+              "fullTitle": "Actividad final del proyecto Abrir la página de inicio",
+              "timedOut": null,
+              "duration": 1442,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://frontend-gxnova-production.up.railway.app/');",
+              "err": {},
+              "uuid": "d5a78dfd-3cd7-492e-bc98-b73c9e85eb6e",
+              "parentUUID": "837fe6a6-1cfa-4498-9b34-d2d1362b2119",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Iniciar Sesión y Verificar Sesión",
+              "fullTitle": "Actividad final del proyecto Iniciar Sesión y Verificar Sesión",
+              "timedOut": null,
+              "duration": 6774,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://frontend-gxnova-production.up.railway.app/');\ncy.contains('Iniciar Sesión').click();\ncy.get('#login-correo').clear().type('ana@worker.com');\ncy.get('#login-password').clear().type('password123');\ncy.get('form').submit();\n// Verificar que el usuario se encuentre en sesión (aparece el nombre del usuario o el botón de perfil)\ncy.get('nav').should('contain', 'Ana');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected '<nav.hidden.lg:flex.items-center.gap-1>' to contain 'Ana'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected '<nav.hidden.lg:flex.items-center.gap-1>' to contain 'Ana'\n    at Context.eval (webpack://actividad-pruebas-cypress/./cypress/e2e/Actividad final del proyecto.cy.js:19:22)",
+                "diff": null
+              },
+              "uuid": "86799920-b18c-4588-b1bf-4690982e3b5d",
+              "parentUUID": "837fe6a6-1cfa-4498-9b34-d2d1362b2119",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Realizar un registro mediante un formulario",
+              "fullTitle": "Actividad final del proyecto Realizar un registro mediante un formulario",
+              "timedOut": null,
+              "duration": 3767,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://frontend-gxnova-production.up.railway.app/auth');\ncy.contains('Registrarse').click();\ncy.get('input#nombre').type('Juan');\ncy.get('input#apellido').type('Perez');\ncy.get('input#telefono').type('3001234567');\ncy.get('select#rol').select('Trabajador');\ncy.get('input#correo').type(`juan.perez.${Date.now()}@example.com`);\ncy.get('input#password').type('Password123!');\ncy.get('input#confirmPassword').type('Password123!');\n// El formulario requiere subir archivos, pero en pruebas automatizadas a veces se omiten o se cargan dummies.\n// Si el botón está habilitado sin archivos, se puede enviar.\ncy.get('button[type=\"submit\"]').click();\n// Verificar éxito (redirige al login o muestra mensaje)\ncy.url().should('include', '/auth');\ncy.contains('Iniciar Sesión').should('be.visible');",
+              "err": {},
+              "uuid": "157fc93c-b95a-4b3a-8c3b-e855b6907ad7",
+              "parentUUID": "837fe6a6-1cfa-4498-9b34-d2d1362b2119",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Consultar un elemento registrado en su proyecto",
+              "fullTitle": "Actividad final del proyecto Consultar un elemento registrado en su proyecto",
+              "timedOut": null,
+              "duration": 2468,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://frontend-gxnova-production.up.railway.app/');\n// Buscar un servicio específico (ej: Arreglar lámpara)\ncy.get('input#busqueda-principal').type('lámpara{enter}');\n// Click en el primer resultado que coincida\ncy.contains('Arreglar lámpara').click();\n// Verificar que estamos en la página de detalles\ncy.url().should('include', '/detalles/');\ncy.get('h1').should('contain', 'Arreglar lámpara');",
+              "err": {},
+              "uuid": "34a8b5d5-aa8e-4d5a-a3bb-8ebb2d91f455",
+              "parentUUID": "837fe6a6-1cfa-4498-9b34-d2d1362b2119",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Cerrar la sesión",
+              "fullTitle": "Actividad final del proyecto Cerrar la sesión",
+              "timedOut": null,
+              "duration": 11903,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Primero iniciamos sesión para poder cerrarla\ncy.visit('https://frontend-gxnova-production.up.railway.app/auth');\ncy.get('#login-correo').type('ana@worker.com');\ncy.get('#login-password').type('password123');\ncy.get('form').submit();\n// Verificar que estamos logueados\ncy.get('nav', {\n  timeout: 10000\n}).should('contain', 'Ana');\n// Hacer clic en el nombre del usuario o el botón de menú para ver \"Cerrar Sesión\"\ncy.contains('Ana').click();\ncy.contains('Cerrar Sesión').click();\n// Verificar que volvimos al estado de \"no sesion\"\ncy.contains('Iniciar Sesión').should('be.visible');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: expected '<nav.hidden.lg:flex.items-center.gap-1>' to contain 'Ana'",
+                "estack": "AssertionError: Timed out retrying after 10000ms: expected '<nav.hidden.lg:flex.items-center.gap-1>' to contain 'Ana'\n    at Context.eval (webpack://actividad-pruebas-cypress/./cypress/e2e/Actividad final del proyecto.cy.js:68:42)",
+                "diff": null
+              },
+              "uuid": "45dd1cd5-2a86-4f6b-aaf4-c93e57c8ec84",
+              "parentUUID": "837fe6a6-1cfa-4498-9b34-d2d1362b2119",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d5a78dfd-3cd7-492e-bc98-b73c9e85eb6e",
+            "157fc93c-b95a-4b3a-8c3b-e855b6907ad7",
+            "34a8b5d5-aa8e-4d5a-a3bb-8ebb2d91f455"
+          ],
+          "failures": [
+            "86799920-b18c-4588-b1bf-4690982e3b5d",
+            "45dd1cd5-2a86-4f6b-aaf4-c93e57c8ec84"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 26354,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
